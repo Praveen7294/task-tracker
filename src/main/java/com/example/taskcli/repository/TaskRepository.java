@@ -1,6 +1,7 @@
 package com.example.taskcli.repository;
 
 import com.example.taskcli.model.Task;
+import com.example.taskcli.model.TaskStatus;
 
 import java.util.List;
 import java.util.Optional;
@@ -13,7 +14,7 @@ public interface TaskRepository {
 
     List<Task> findAll();
 
-    List<Task> findByStatus(String status);
+    List<Task> findByStatus(TaskStatus status);
 
     void deleteById(int id);
 
