@@ -90,7 +90,7 @@ public class FileTaskRepository implements TaskRepository {
         try {
             return objectMapper.readValue(FILE_PATH.toFile(), TaskStorage.class);
         } catch (IOException e) {
-            throw new IllegalStateException("Failed to read Task file", e);
+            throw new IllegalStateException("Failed to read Task file: ", e);
         }
     }
 
@@ -98,7 +98,7 @@ public class FileTaskRepository implements TaskRepository {
         try {
             objectMapper.writerWithDefaultPrettyPrinter().writeValue(FILE_PATH.toFile(), taskStorage);
         } catch (IOException e) {
-            throw new IllegalStateException("Failed to write tasks file", e);
+            throw new IllegalStateException("Failed to write tasks file: ", e);
         }
     }
 }
