@@ -69,7 +69,7 @@ public class FileTaskRepository implements TaskRepository {
     }
 
     @Override
-    public void deleteById(int id) {
+    public boolean deleteById(int id) {
         TaskStorage taskStorage = loadFromFile();
 
         boolean removed = taskStorage.getTasks().removeIf(t -> t.getId() == id);
@@ -77,6 +77,8 @@ public class FileTaskRepository implements TaskRepository {
         if (removed) {
             saveToFile(taskStorage);
         }
+
+        return removed;
     }
 
     @Override

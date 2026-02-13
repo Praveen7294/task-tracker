@@ -16,7 +16,7 @@ public interface TaskRepository {
 
     List<Task> findByStatus(TaskStatus status);
 
-    void deleteById(int id);
+    boolean deleteById(int id);
 
     int getNextId();
 }
