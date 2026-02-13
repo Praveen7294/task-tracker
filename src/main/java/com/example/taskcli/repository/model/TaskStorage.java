@@ -21,8 +21,4 @@ public class TaskStorage {
         return tasks;
     }
 
-    public void setTasks(List<Task> tasks) {
-        this.tasks = tasks;
-    }
-
 }
