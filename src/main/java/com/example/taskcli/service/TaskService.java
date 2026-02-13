@@ -9,7 +9,7 @@ import java.util.List;
 
 public class TaskService {
 
-    public final TaskRepository taskRepository;
+    private final TaskRepository taskRepository;
 
     public TaskService(TaskRepository taskRepository) {
         this.taskRepository = taskRepository;
