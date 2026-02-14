@@ -7,6 +7,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 
 import java.io.IOException;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
 import java.util.Optional;
@@ -85,6 +86,10 @@ public class FileTaskRepository implements TaskRepository {
     }
 
     private TaskStorage loadFromFile() {
+        if (Files.notExists(filePath)) {
+            return new TaskStorage();
+        }
+
         try {
             return objectMapper.readValue(filePath.toFile(), TaskStorage.class);
         } catch (IOException e) {

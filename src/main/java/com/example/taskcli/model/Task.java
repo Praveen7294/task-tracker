@@ -1,5 +1,8 @@
 package com.example.taskcli.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.time.LocalDateTime;
 
 public class Task {
@@ -9,7 +12,11 @@ public class Task {
     private final LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
-    public Task(int id, String description, LocalDateTime createdAt) {
+    @JsonCreator
+    public Task(
+            @JsonProperty("id") int id,
+            @JsonProperty("description") String description,
+            @JsonProperty("createdAt") LocalDateTime createdAt) {
         this.id = id;
         this.description = description;
         this.status = TaskStatus.TODO;
