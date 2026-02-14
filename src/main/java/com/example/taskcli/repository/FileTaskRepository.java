@@ -8,18 +8,16 @@ import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 
 import java.io.IOException;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.List;
 import java.util.Optional;
 
 public class FileTaskRepository implements TaskRepository {
 
-    private static final Path FILE_PATH =
-            Paths.get(System.getProperty("user.dir"), "data", "tasks.json");
-
+    private final Path filePath;
     private final ObjectMapper objectMapper;
 
-    public FileTaskRepository() {
+    public FileTaskRepository(Path filePath) {
+        this.filePath = filePath;
         this.objectMapper = new ObjectMapper();
         objectMapper.registerModule(new JavaTimeModule());
     }
@@ -88,7 +86,7 @@ public class FileTaskRepository implements TaskRepository {
 
     private TaskStorage loadFromFile() {
         try {
-            return objectMapper.readValue(FILE_PATH.toFile(), TaskStorage.class);
+            return objectMapper.readValue(filePath.toFile(), TaskStorage.class);
         } catch (IOException e) {
             throw new IllegalStateException("Failed to read Task file: ", e);
         }
@@ -96,7 +94,7 @@ public class FileTaskRepository implements TaskRepository {
 
     private void saveToFile(TaskStorage taskStorage) {
         try {
-            objectMapper.writerWithDefaultPrettyPrinter().writeValue(FILE_PATH.toFile(), taskStorage);
+            objectMapper.writerWithDefaultPrettyPrinter().writeValue(filePath.toFile(), taskStorage);
         } catch (IOException e) {
             throw new IllegalStateException("Failed to write tasks file: ", e);
         }
