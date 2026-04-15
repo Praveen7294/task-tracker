@@ -37,7 +37,7 @@ public class TaskService {
         updateStatus(id, TaskStatus.DONE);
     }
 
-    public void updateStatus(int id, TaskStatus status) {
+    private void updateStatus(int id, TaskStatus status) {
         Task task = taskRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Task not found: " + id));
 
