@@ -25,7 +25,7 @@ public class CommandHandler {
             err.println("Error: No command specified");
             err.println("Usage: task-cli <command> [arguments]");
             out.println();
-            err.println("For help use: task-cli help");
+            out.println("For help use: task-cli help");
             return;
         }
 
@@ -57,7 +57,7 @@ public class CommandHandler {
             default:
                 err.println("Error: Unknown command: " + args[0]);
                 out.println();
-                err.println("For help use: task-cli help");
+                out.println("For help use: task-cli help");
         }
     }
 
