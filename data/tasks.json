@@ -1,4 +1,22 @@
 {
-  "lastId" : 0,
-  "task" : []
+  "lastId" : 3,
+  "tasks" : [ {
+    "id" : 1,
+    "description" : "First Task",
+    "createdAt" : [ 2026, 4, 28, 2, 55, 36, 686852800 ],
+    "status" : "IN_PROGRESS",
+    "updatedAt" : [ 2026, 4, 28, 2, 57, 50, 660230700 ]
+  }, {
+    "id" : 2,
+    "description" : "Second Task",
+    "createdAt" : [ 2026, 4, 28, 2, 56, 13, 251060100 ],
+    "status" : "TODO",
+    "updatedAt" : [ 2026, 4, 28, 2, 56, 13, 251060100 ]
+  }, {
+    "id" : 3,
+    "description" : "Third Task",
+    "createdAt" : [ 2026, 4, 28, 2, 56, 28, 95687500 ],
+    "status" : "TODO",
+    "updatedAt" : [ 2026, 4, 28, 2, 56, 28, 95687500 ]
+  } ]
 }
